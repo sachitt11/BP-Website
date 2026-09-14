@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>A Better Person Club</title>
+    <title>BP Club | Better Person Club</title>
 
     <style>
-        /* ---------- GENERAL ---------- */
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -22,378 +19,395 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f7f8fc;
-            color: #222;
+            background: #f8fafc;
+            color: #0f172a;
             line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ---------- NAVBAR ---------- */
-
+        /* NAVBAR */
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: #111827;
-            color: white;
-            padding: 15px 6%;
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1100px, 92%);
+            padding: 14px 22px;
+            border-radius: 50px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(15px);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,.15);
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #7dd3fc;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 24px;
             list-style: none;
         }
 
         .nav-links a {
-            transition: 0.3s;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 600;
+            transition: .2s;
         }
 
         .nav-links a:hover {
-            color: #7dd3fc;
+            color: #38bdf8;
         }
 
-        /* ---------- HERO ---------- */
-
+        /* HERO */
         .hero {
-            min-height: 80vh;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 50px 20px;
-            background:
-                linear-gradient(rgba(17,24,39,0.78), rgba(17,24,39,0.78)),
-                linear-gradient(135deg, #38bdf8, #818cf8);
+            padding: 120px 20px 80px;
             color: white;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(56,189,248,.35), transparent 30%),
+                radial-gradient(circle at 80% 30%, rgba(129,140,248,.35), transparent 30%),
+                linear-gradient(135deg, #020617, #172554 55%, #312e81);
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.2);
+            margin-bottom: 25px;
+            font-size: .9rem;
         }
 
         .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 5rem);
-            margin-bottom: 20px;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1;
+            margin-bottom: 25px;
+            letter-spacing: -3px;
         }
 
         .hero h1 span {
-            color: #7dd3fc;
+            background: linear-gradient(90deg, #38bdf8, #a78bfa);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 30px;
+            max-width: 680px;
+            margin: auto;
+            color: #dbeafe;
+            font-size: 1.15rem;
         }
 
-        .button {
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
             display: inline-block;
-            background: #38bdf8;
-            color: #0f172a;
-            padding: 13px 25px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
+            padding: 14px 25px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: .25s;
         }
 
-        .button:hover {
+        .btn-primary {
+            color: white;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+        }
+
+        .btn-secondary {
+            color: white;
+            border: 1px solid rgba(255,255,255,.3);
+            background: rgba(255,255,255,.08);
+        }
+
+        .btn:hover {
             transform: translateY(-3px);
-            background: #7dd3fc;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
-        /* ---------- SECTIONS ---------- */
-
+        /* GENERAL */
         section {
-            padding: 75px 7%;
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 50px;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
-            color: #111827;
+            font-size: 2.7rem;
             margin-bottom: 10px;
         }
 
         .section-title p {
             color: #64748b;
-            max-width: 650px;
-            margin: auto;
         }
 
-        /* ---------- ABOUT ---------- */
-
-        .about {
-            background: white;
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
 
-        .about-content {
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-            font-size: 1.1rem;
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
-        /* ---------- CARDS ---------- */
+        .about-text p {
+            color: #475569;
+            margin-bottom: 15px;
+        }
 
+        .about-card {
+            padding: 40px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #e0f2fe, #ede9fe);
+            box-shadow: 0 20px 50px rgba(15,23,42,.08);
+        }
+
+        .about-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* FOCUS CARDS */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
         .card {
-            background: white;
             padding: 30px;
-            border-radius: 18px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: 0.3s;
-            border-top: 5px solid #38bdf8;
+            background: white;
+            border-radius: 22px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(15,23,42,.06);
+            transition: .25s;
         }
 
         .card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(15,23,42,.1);
         }
 
         .card-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 15px;
         }
 
         .card h3 {
             margin-bottom: 10px;
-            color: #111827;
         }
 
         .card p {
             color: #64748b;
         }
 
-        /* ---------- HABITS ---------- */
-
-        .habits {
-            background: #eef6ff;
-        }
-
-        .habit-list {
-            max-width: 800px;
+        /* CHECKLIST */
+        .checklist {
+            max-width: 700px;
             margin: auto;
+            display: grid;
+            gap: 12px;
         }
 
-        .habit {
+        .check-item {
             background: white;
-            margin-bottom: 15px;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 18px 20px;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
             display: flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
-        .habit input {
-            width: 22px;
-            height: 22px;
-            cursor: pointer;
+        .check-item input {
+            width: 20px;
+            height: 20px;
         }
 
-        .habit.completed {
-            opacity: 0.6;
-            text-decoration: line-through;
-        }
-
-        /* ---------- TIPS ---------- */
-
-        .tips {
-            background: white;
-        }
-
+        /* TIP */
         .tip-box {
-            max-width: 750px;
-            margin: auto;
-            background: #111827;
-            color: white;
-            padding: 35px;
+            max-width: 700px;
+            margin: 40px auto 0;
+            padding: 30px;
             border-radius: 20px;
             text-align: center;
+            background: #0f172a;
+            color: white;
         }
 
-        .tip-box h3 {
-            color: #7dd3fc;
-            margin-bottom: 15px;
-            font-size: 1.7rem;
+        .tip-box p {
+            margin-bottom: 20px;
+            color: #cbd5e1;
         }
 
-        #tipText {
-            min-height: 60px;
-            font-size: 1.1rem;
+        .tip-button {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            background: #38bdf8;
+            color: #082f49;
+            font-weight: 700;
         }
 
-        /* ---------- MEETINGS ---------- */
-
-        .meetings {
-            background: #f7f8fc;
+        /* MEETINGS */
+        .table-wrapper {
+            overflow-x: auto;
         }
 
-        .meeting-table {
+        table {
             width: 100%;
-            max-width: 900px;
-            margin: auto;
             border-collapse: collapse;
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(15,23,42,.06);
         }
 
-        .meeting-table th,
-        .meeting-table td {
+        th, td {
             padding: 18px;
             text-align: left;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        .meeting-table th {
-            background: #111827;
+        th {
+            background: #0f172a;
             color: white;
         }
 
-        /* ---------- JOIN ---------- */
-
-        .join {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+        /* JOIN */
+        .join-section {
             color: white;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(56,189,248,.3), transparent 30%),
+                linear-gradient(135deg, #020617, #1e1b4b);
+        }
+
+        .join-box {
+            max-width: 750px;
+            margin: auto;
             text-align: center;
         }
 
-        .join h2 {
-            font-size: 2.7rem;
+        .join-box h2 {
+            font-size: 3rem;
             margin-bottom: 15px;
         }
 
-        .join p {
-            max-width: 650px;
-            margin: 0 auto 30px;
+        .join-box p {
             color: #cbd5e1;
+            margin-bottom: 30px;
         }
 
-        /* ---------- MODAL ---------- */
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.65);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: white;
-            color: #222;
-            max-width: 500px;
-            width: 100%;
+        .join-form {
+            text-align: left;
             padding: 35px;
-            border-radius: 20px;
-            position: relative;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
         }
 
-        .modal-content h2 {
+        .form-group {
             margin-bottom: 20px;
         }
 
-        .close {
-            position: absolute;
-            top: 12px;
-            right: 20px;
-            font-size: 30px;
-            cursor: pointer;
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 700;
         }
 
-        form input,
-        form textarea {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 13px;
-            margin-bottom: 15px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
+            padding: 13px 15px;
+            border: none;
+            border-radius: 10px;
             font-size: 1rem;
+            font-family: inherit;
         }
 
-        form textarea {
-            height: 100px;
+        .form-group textarea {
+            min-height: 120px;
             resize: vertical;
         }
 
-        /* ---------- FOOTER ---------- */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            color: white;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+        }
 
+        /* FOOTER */
         footer {
+            padding: 35px 20px;
+            text-align: center;
             background: #020617;
             color: #94a3b8;
-            text-align: center;
-            padding: 30px;
         }
 
         footer strong {
             color: white;
         }
 
-        /* ---------- MOBILE ---------- */
-
-        @media (max-width: 700px) {
-            nav {
-                flex-direction: column;
-                gap: 12px;
-            }
-
+        /* MOBILE */
+        @media (max-width: 800px) {
             .nav-links {
-                gap: 12px;
-                flex-wrap: wrap;
-                justify-content: center;
+                display: none;
             }
 
-            .hero {
-                min-height: 70vh;
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
             }
 
             .hero h1 {
-                font-size: 3rem;
-            }
-
-            .meeting-table {
-                font-size: 0.9rem;
+                letter-spacing: -1px;
             }
         }
     </style>
@@ -403,7 +417,7 @@
 
     <!-- NAVIGATION -->
     <nav>
-        <div class="logo">A Better <span>Person</span></div>
+        <a href="#" class="logo">BP Club</a>
 
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
@@ -414,432 +428,379 @@
         </ul>
     </nav>
 
-
     <!-- HERO -->
     <header class="hero">
         <div class="hero-content">
 
-            <h1>Become a <span>Better Person.</span></h1>
+            <div class="badge">
+                Better Person Club • BP Club
+            </div>
+
+            <h1>
+                Become a <span>Better Person.</span>
+            </h1>
 
             <p>
-                A student-led club focused on self-care, confidence,
-                healthy habits, grooming, and becoming the best version
-                of yourself.
+                BP Club is a high school club focused on self-care,
+                confidence, grooming, healthy habits, and becoming
+                the best version of yourself.
             </p>
 
-            <a href="#join" class="button">Join Our Club</a>
+            <div class="hero-buttons">
+                <a href="#join" class="btn btn-primary">Join BP Club</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
 
         </div>
     </header>
 
-
     <!-- ABOUT -->
-    <section id="about" class="about">
+    <section id="about">
+        <div class="container">
 
-        <div class="section-title">
-            <h2>About Us</h2>
-            <p>Small habits can make a big difference.</p>
-        </div>
+            <div class="about-grid">
 
-        <div class="about-content">
+                <div class="about-text">
+                    <h2>What is BP Club?</h2>
 
-            <p>
-                A Better Person Club is a high-school club where students
-                can learn practical ways to take better care of themselves.
-                We focus on healthy routines, personal hygiene, skincare,
-                hair care, confidence, organization, and overall
-                self-improvement.
-            </p>
+                    <p>
+                        BP Club stands for <strong>Better Person Club</strong>.
+                        Our goal is to help students build positive routines
+                        that improve confidence, self-care, hygiene, and
+                        everyday life.
+                    </p>
 
-            <br>
+                    <p>
+                        We believe becoming a better person isn't about
+                        looking perfect. It's about taking care of yourself,
+                        building healthy habits, and becoming more confident
+                        in who you are.
+                    </p>
+                </div>
 
-            <p>
-                Our goal isn't to make everyone look the same. Everyone is
-                different, and there is no single "perfect" appearance.
-                Instead, we help students build healthy habits that make
-                them feel comfortable, confident, and prepared for everyday
-                life.
-            </p>
+                <div class="about-card">
+                    <h3>Our Goal</h3>
+
+                    <p>
+                        Create a supportive community where students can
+                        learn practical self-care habits and encourage
+                        each other to improve.
+                    </p>
+                </div>
+
+            </div>
 
         </div>
     </section>
 
-
-    <!-- FOCUS AREAS -->
+    <!-- FOCUS -->
     <section id="focus">
+        <div class="container">
 
-        <div class="section-title">
-            <h2>What We Focus On</h2>
-            <p>Learn useful habits that you can actually use in everyday life.</p>
-        </div>
-
-        <div class="cards">
-
-            <div class="card">
-                <div class="card-icon">🧴</div>
-                <h3>Skin Care</h3>
-                <p>
-                    Learn simple, age-appropriate skincare habits such as
-                    gentle cleansing, moisturizing, and sun protection.
-                </p>
+            <div class="section-title">
+                <h2>What We Focus On</h2>
+                <p>Small habits can make a big difference.</p>
             </div>
 
-            <div class="card">
-                <div class="card-icon">💇</div>
-                <h3>Hair Care</h3>
-                <p>
-                    Learn about hair hygiene, basic maintenance, different
-                    hair types, and finding routines that work for you.
-                </p>
+            <div class="cards">
+
+                <div class="card">
+                    <div class="card-icon">🧴</div>
+                    <h3>Skin Care</h3>
+                    <p>
+                        Learn basic skincare, cleanliness, sun protection,
+                        and healthy routines.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">💇</div>
+                    <h3>Hair Care</h3>
+                    <p>
+                        Learn about hair hygiene, maintenance, and finding
+                        routines that work for you.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🧼</div>
+                    <h3>Personal Hygiene</h3>
+                    <p>
+                        Build everyday habits that help you stay clean,
+                        comfortable, and healthy.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">💪</div>
+                    <h3>Confidence</h3>
+                    <p>
+                        Work on self-confidence, communication, and feeling
+                        comfortable being yourself.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">👕</div>
+                    <h3>Personal Style</h3>
+                    <p>
+                        Explore clothing, organization, and ways to express
+                        your personality.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🌱</div>
+                    <h3>Healthy Habits</h3>
+                    <p>
+                        Develop positive routines around sleep, organization,
+                        activity, and taking care of yourself.
+                    </p>
+                </div>
+
             </div>
-
-            <div class="card">
-                <div class="card-icon">🧼</div>
-                <h3>Personal Hygiene</h3>
-                <p>
-                    Build everyday routines involving showering, dental
-                    care, clean clothes, deodorant, and general hygiene.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🧠</div>
-                <h3>Confidence</h3>
-                <p>
-                    Work on confidence, communication, self-respect, and
-                    feeling comfortable being yourself.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">👕</div>
-                <h3>Personal Style</h3>
-                <p>
-                    Explore ways to express yourself through clothing,
-                    organization, and personal style without comparing
-                    yourself to others.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🌱</div>
-                <h3>Healthy Habits</h3>
-                <p>
-                    Focus on sleep, hydration, cleanliness, organization,
-                    stress management, and other habits that support
-                    overall well-being.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- HABIT CHECKLIST -->
-    <section id="habits" class="habits">
-
-        <div class="section-title">
-            <h2>Daily Self-Care Checklist</h2>
-            <p>
-                Try checking off a few healthy habits each day.
-                Progress matters more than perfection.
-            </p>
-        </div>
-
-        <div class="habit-list">
-
-            <label class="habit">
-                <input type="checkbox">
-                <span>Brush teeth in the morning and at night</span>
-            </label>
-
-            <label class="habit">
-                <input type="checkbox">
-                <span>Wash your face gently</span>
-            </label>
-
-            <label class="habit">
-                <input type="checkbox">
-                <span>Take a shower and practice good hygiene</span>
-            </label>
-
-            <label class="habit">
-                <input type="checkbox">
-                <span>Take care of your hair</span>
-            </label>
-
-            <label class="habit">
-                <input type="checkbox">
-                <span>Drink water throughout the day</span>
-            </label>
-
-            <label class="habit">
-                <input type="checkbox">
-                <span>Get enough sleep</span>
-            </label>
-
-            <label class="habit">
-                <input type="checkbox">
-                <span>Do something that helps you relax</span>
-            </label>
 
         </div>
     </section>
 
+    <!-- HABITS -->
+    <section id="habits">
+        <div class="container">
 
-    <!-- RANDOM TIP -->
-    <section class="tips">
+            <div class="section-title">
+                <h2>Daily Self-Care Checklist</h2>
+                <p>Try building these habits into your day.</p>
+            </div>
 
-        <div class="section-title">
-            <h2>Self-Care Tip</h2>
-            <p>Click the button to get a random club tip.</p>
-        </div>
+            <div class="checklist">
 
-        <div class="tip-box">
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span>Brush your teeth</span>
+                </label>
 
-            <h3>💡 Today's Tip</h3>
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span>Wash your face</span>
+                </label>
 
-            <p id="tipText">
-                Start with simple habits that you can consistently maintain.
-            </p>
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span>Take a shower</span>
+                </label>
 
-            <br>
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span>Take care of your hair</span>
+                </label>
 
-            <button class="button" onclick="newTip()">
-                Give Me a Tip
-            </button>
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span>Drink enough water</span>
+                </label>
+
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span>Get enough sleep</span>
+                </label>
+
+                <label class="check-item">
+                    <input type="checkbox">
+                    <span>Do something productive</span>
+                </label>
+
+            </div>
+
+            <div class="tip-box">
+                <p id="tip">
+                    Click the button for a random self-care tip.
+                </p>
+
+                <button class="tip-button" onclick="newTip()">
+                    Get a Tip
+                </button>
+            </div>
 
         </div>
     </section>
-
 
     <!-- MEETINGS -->
-    <section id="meetings" class="meetings">
+    <section id="meetings">
+        <div class="container">
 
-        <div class="section-title">
-            <h2>Club Meetings</h2>
-            <p>Come learn, talk, and work on positive habits together.</p>
+            <div class="section-title">
+                <h2>Club Meetings</h2>
+                <p>Learn, improve, and connect with other members.</p>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Topic</th>
+                            <th>Activity</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Meeting 1</td>
+                            <td>Introduction to Self-Care</td>
+                            <td>Build your personal routine</td>
+                        </tr>
+
+                        <tr>
+                            <td>Meeting 2</td>
+                            <td>Skin & Hygiene</td>
+                            <td>Learn the basics</td>
+                        </tr>
+
+                        <tr>
+                            <td>Meeting 3</td>
+                            <td>Hair Care</td>
+                            <td>Hair routine discussion</td>
+                        </tr>
+
+                        <tr>
+                            <td>Meeting 4</td>
+                            <td>Confidence</td>
+                            <td>Confidence-building activities</td>
+                        </tr>
+
+                        <tr>
+                            <td>Meeting 5</td>
+                            <td>Personal Style</td>
+                            <td>Style and organization</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
-
-        <table class="meeting-table">
-
-            <tr>
-                <th>Date</th>
-                <th>Topic</th>
-                <th>Activity</th>
-            </tr>
-
-            <tr>
-                <td>September 18</td>
-                <td>Starting a Routine</td>
-                <td>Build Your Own Routine</td>
-            </tr>
-
-            <tr>
-                <td>September 25</td>
-                <td>Skin Care Basics</td>
-                <td>Skincare Q&A</td>
-            </tr>
-
-            <tr>
-                <td>October 2</td>
-                <td>Hair Care</td>
-                <td>Hair Care Workshop</td>
-            </tr>
-
-            <tr>
-                <td>October 9</td>
-                <td>Confidence</td>
-                <td>Confidence Activities</td>
-            </tr>
-
-        </table>
     </section>
-
 
     <!-- JOIN -->
-    <section id="join" class="join">
+    <section id="join" class="join-section">
 
-        <h2>Want to Join?</h2>
+        <div class="container">
 
-        <p>
-            You don't need to change who you are to be part of our club.
-            Come learn new habits, meet other students, and work toward
-            becoming a healthier and more confident version of yourself.
-        </p>
+            <div class="join-box">
 
-        <button class="button" onclick="openModal()">
-            Join A Better Person Club
-        </button>
+                <h2>Join BP Club</h2>
 
-    </section>
+                <p>
+                    Want to become part of BP Club?
+                    Fill out the application below.
+                </p>
 
-
-    <!-- JOIN FORM MODAL -->
-    <div id="joinModal" class="modal">
-
-        <div class="modal-content">
-
-            <span class="close" onclick="closeModal()">&times;</span>
-
-            <h2>Join the Club</h2>
-
-            <form onsubmit="submitForm(event)">
-
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Your Name"
-                    required
+                <!-- NETLIFY FORM -->
+                <form
+                    name="bp-club-join"
+                    method="POST"
+                    data-netlify="true"
+                    action="/thank-you.html"
+                    class="join-form"
                 >
 
-                <input
-                    type="text"
-                    id="grade"
-                    placeholder="Your Grade"
-                    required
-                >
+                    <!-- Required by Netlify -->
+                    <input
+                        type="hidden"
+                        name="form-name"
+                        value="bp-club-join"
+                    >
 
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="School Email"
-                    required
-                >
+                    <div class="form-group">
+                        <label for="name">Name</label>
 
-                <textarea
-                    id="reason"
-                    placeholder="Why are you interested in joining?"
-                    required
-                ></textarea>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                            required
+                        >
+                    </div>
 
-                <button class="button" type="submit">
-                    Submit
-                </button>
+                    <div class="form-group">
+                        <label for="grade">Grade</label>
 
-            </form>
+                        <select id="grade" name="grade" required>
+                            <option value="">Select your grade</option>
+                            <option value="9">9th Grade</option>
+                            <option value="10">10th Grade</option>
+                            <option value="11">11th Grade</option>
+                            <option value="12">12th Grade</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            Personal Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reason">
+                            Why do you want to join?
+                        </label>
+
+                        <textarea
+                            id="reason"
+                            name="reason"
+                            placeholder="Tell us a little about why you'd like to join BP Club..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Submit Application
+                    </button>
+
+                </form>
+
+            </div>
 
         </div>
 
-    </div>
-
+    </section>
 
     <!-- FOOTER -->
     <footer>
-
         <p>
-            <strong>A Better Person Club</strong>
+            <strong>BP Club</strong> — Better Person Club
         </p>
 
         <p>
-            High School Self-Care & Personal Development Club
+            Built by students, for students.
         </p>
-
-        <p>
-            © 2026 A Better Person Club
-        </p>
-
     </footer>
 
-
-    <!-- JAVASCRIPT -->
     <script>
-
-        /* ---------- HABIT CHECKBOXES ---------- */
-
-        const habits = document.querySelectorAll(".habit");
-
-        habits.forEach(function(habit) {
-
-            const checkbox = habit.querySelector("input");
-
-            checkbox.addEventListener("change", function() {
-
-                if (checkbox.checked) {
-                    habit.classList.add("completed");
-                } else {
-                    habit.classList.remove("completed");
-                }
-
-            });
-
-        });
-
-
-        /* ---------- RANDOM TIPS ---------- */
-
         const tips = [
-            "Consistency is more important than having a complicated routine.",
-            "Wash your face gently instead of scrubbing aggressively.",
-            "Remember to protect your skin from the sun when you're outside.",
-            "Hair care depends on your hair type, so find a routine that works for you.",
-            "Taking care of your teeth is one of the most important parts of personal hygiene.",
-            "Getting enough sleep can help you feel more energized during the school day.",
-            "Don't compare your appearance to people online. Everyone is different.",
-            "Confidence comes from taking care of yourself and being comfortable with who you are.",
-            "A clean outfit and good hygiene can help you feel prepared for the day.",
-            "You don't need a huge routine. Start with one or two habits and build from there."
+            "Consistency matters more than having a perfect routine.",
+            "Keep your skincare routine simple and consistent.",
+            "Taking care of your hygiene is an important form of self-respect.",
+            "Getting enough sleep can help you feel more focused during the day.",
+            "Find a hairstyle and routine that makes you feel comfortable and confident.",
+            "Drink water throughout the day.",
+            "Keep your room and backpack organized to reduce everyday stress.",
+            "Confidence grows when you practice being comfortable with yourself."
         ];
 
         function newTip() {
-
-            const randomNumber =
-                Math.floor(Math.random() * tips.length);
-
-            document.getElementById("tipText").textContent =
-                tips[randomNumber];
-
+            const randomIndex = Math.floor(Math.random() * tips.length);
+            document.getElementById("tip").textContent = tips[randomIndex];
         }
-
-
-        /* ---------- JOIN MODAL ---------- */
-
-        const modal = document.getElementById("joinModal");
-
-        function openModal() {
-            modal.style.display = "flex";
-        }
-
-        function closeModal() {
-            modal.style.display = "none";
-        }
-
-
-        /* Close modal if user clicks outside it */
-
-        window.addEventListener("click", function(event) {
-
-            if (event.target === modal) {
-                closeModal();
-            }
-
-        });
-
-
-        /* ---------- FORM ---------- */
-
-        function submitForm(event) {
-
-            event.preventDefault();
-
-            const name =
-                document.getElementById("name").value;
-
-            alert(
-                "Thanks for your interest, " +
-                name +
-                "! Your club form has been submitted."
-            );
-
-            event.target.reset();
-
-            closeModal();
-
-        }
-
     </script>
 
 </body>
 </html>
-```
-
